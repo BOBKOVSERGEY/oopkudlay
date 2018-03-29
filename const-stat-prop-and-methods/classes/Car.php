@@ -10,7 +10,12 @@ class Car
   // статическое свойство создается для работы в классе
   public static $countCar = 0;
 
+  // добавляем константу, константы принадлежать классу
+  const TEST_CAR = 'Прототип';
+  const TEST_CAR_SPEED = 300;
+
   // метод срабатывает при создании объекта
+
   public function __construct($brand, $color, $wheels, $speed)
   {
     $this->brand = $brand;
@@ -33,6 +38,13 @@ class Car
   public static function getCount()
   {
     return self::$countCar;
+  }
+
+  public function getPrototypeInfo()
+  {
+    echo "<h3>Данные тестового авто:</h3>
+            Наименование: " . self::TEST_CAR
+            . "<br>Скорость: " . self::TEST_CAR_SPEED . "<br>";
   }
 
 }
