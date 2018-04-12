@@ -5,6 +5,10 @@ class Product
   public $name;
   public $price;
 
+  public $public = 'PUBLIC'; // публичный, доступен везде
+  protected $protected = 'PROTECTED'; // зашишенный, доступен где объявлен и в класах наследниках, вне класса не доступен
+  private $private = 'PRIVATE'; // закрытый, доступен только внутри объявленного класса
+
   public function __construct($name, $price)
   {
     $this->name = $name;
