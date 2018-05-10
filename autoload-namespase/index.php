@@ -6,10 +6,13 @@ require_once 'classes/I3D.php';
 require_once 'classes/IGadget.php';
 require_once 'classes/NotebookProduct.php';
 require_once 'classes/BookProduct.php';*/
+use classes\BookProduct;
+use classes\interfaces\IGadget;
+use classes\NotebookProduct;
 
 function autoloader($class)
 {
-  $file = __DIR__ . "/classes/{$class}.php";
+  $file = __DIR__ . "/{$class}.php";
   if (file_exists($file)) {
     require_once $file;
   }
@@ -17,7 +20,7 @@ function autoloader($class)
 
 function autoloaderTwo($class)
 {
-  $file = __DIR__ . "/classes/interfaces/{$class}.php";
+  $file = __DIR__ . "/interfaces/{$class}.php";
   if (file_exists($file)) {
     require_once $file;
   }
