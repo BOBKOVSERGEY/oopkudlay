@@ -10,13 +10,21 @@ require_once 'classes/BookProduct.php';*/
 function autoloader($class)
 {
   $file = __DIR__ . "/classes/{$class}.php";
+  if (file_exists($file)) {
+    require_once $file;
+  }
+}
 
+function autoloaderTwo($class)
+{
+  $file = __DIR__ . "/classes/interfaces/{$class}.php";
   if (file_exists($file)) {
     require_once $file;
   }
 }
 
 spl_autoload_register('autoloader');
+spl_autoload_register('autoloaderTwo');
 
 function debug($data){
     echo '<pre>' . print_r($data,1) . '</pre>';
