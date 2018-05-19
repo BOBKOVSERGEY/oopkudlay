@@ -1,18 +1,22 @@
 <?php
 
 error_reporting(-1);
-/*require_once 'classes/Product.php';
-require_once 'classes/I3D.php';
-require_once 'classes/IGadget.php';
-require_once 'classes/NotebookProduct.php';
-require_once 'classes/BookProduct.php';*/
-use classes\BookProduct;
+
+//use classes\BookProduct;
 use classes\interfaces\IGadget;
-use classes\NotebookProduct;
+//use classes\NotebookProduct;
+
+// группировка в php 7
+use classes\{BookProduct, NotebookProduct};
 
 function autoloader($class)
 {
+  $class = str_replace("\\", '/', $class);
+
   $file = __DIR__ . "/{$class}.php";
+
+
+
   if (file_exists($file)) {
     require_once $file;
   }
